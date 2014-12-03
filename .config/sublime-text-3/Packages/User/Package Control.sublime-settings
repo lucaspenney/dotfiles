@@ -1,0 +1,20 @@
+{
+	"installed_packages":
+	[
+		"Auto Semi-Colon",
+		"Backbone.js",
+		"Color Scheme - Baara Dark",
+		"GitGutter-Edge",
+		"JsFormat",
+		"LESS",
+		"Snake",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
+		"SublimeLinter-php",
+		"Syntax Highlighting for Sass",
+		"Theme - Afterglow",
+		"Theme - Cyanide",
+		"Theme - Soda",
+		"Theme - Vim Blackboard"
+	]
+}
