@@ -246,7 +246,7 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+"nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 "
@@ -298,7 +298,7 @@ nnoremap <C-n> :tabnew<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-S-tab> :tabprevious<CR>
 
-nnoremap <silent> <esc> :nohl <return><esc>
+"nnoremap <silent> <esc> :nohl <return><esc>
 
 if has('autocmd')
  au BufWritePost .vimrc source $MYVIMRC | AirlineRefresh
