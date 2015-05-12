@@ -3,10 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+if tty -s; then echo
+   else
+    return
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -118,3 +118,5 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 
 #Prevent control-s locking
 stty -ixon
+
+feh --bg-scale ~/.i3/wallpaper.png
