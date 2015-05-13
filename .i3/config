@@ -214,6 +214,7 @@ bindsym Mod1+Shift+plus gaps inner all minus 10
 bindsym Mod1+minus gaps inner current plus 10
 bindsym Mod1+plus gaps inner current minus 10
 
+bindsym Mod1+s exec xscreensaver-command -activate
 
 #Startup applications
 
