@@ -7,6 +7,8 @@
   close_term = <Primary><Shift>w
   go_right = <Shift>Right
   go_up = <Shift>Up
+  paste = <Control>v
+  copy = <Control>c
 [profiles]
   [[default]]
     scrollbar_position = hidden
