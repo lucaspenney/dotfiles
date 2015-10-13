@@ -19,4 +19,4 @@ if [[ $REPLY =~ ^[Yy]$i ]]; then
   doImport
 fi;
 
-unset doExport;
+unset doImport;

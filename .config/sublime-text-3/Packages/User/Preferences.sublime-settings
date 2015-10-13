@@ -1,6 +1,6 @@
 {
 	"caret_extra_width": 8,
-	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/Theme - Cyanide/Cyanide - Golden - Black.tmTheme",
 	"font_face": "Inconsolata",
 	"font_options":
 	[
@@ -15,7 +15,8 @@
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"scroll_past_end": false,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Cyanide.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"use_tab_stops": true
+	"use_tab_stops": true,
+	"translate_tabs_to_spaces": false
 }
