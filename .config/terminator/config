@@ -2,25 +2,25 @@
   handle_size = 0
   suppress_multiple_term_dialog = True
 [keybindings]
-  go_left = <Shift>Left
+  go_up = <Shift>Up
   go_down = <Shift>Down
   close_term = <Primary><Shift>w
   go_right = <Shift>Right
-  go_up = <Shift>Up
-  paste = <Control>v
+  go_left = <Shift>Left
   copy = <Control>c
+  paste = <Control>v
 [profiles]
   [[default]]
     scrollbar_position = hidden
     use_system_font = False
-    background_darkness = 0.49
+    background_darkness = 0.83
     background_type = transparent
     background_image = None
-    cursor_color = "#deff00"
-    foreground_color = "#c0ff00"
+    cursor_color = "#ffffff"
+    foreground_color = "#bbbbbb"
     show_titlebar = False
     font = Monospace 9
-    background_color = "#002b36"
+    background_color = "#191919"
     scrollback_infinite = True
 [layouts]
   [[default]]

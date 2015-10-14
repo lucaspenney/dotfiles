@@ -119,4 +119,4 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 #Prevent control-s locking
 stty -ixon
 
-feh --bg-scale ~/.i3/wallpaper.png
+feh --bg-scale ~/.i3/wallpaper2.png
