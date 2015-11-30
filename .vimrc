@@ -67,7 +67,7 @@ filetype plugin indent on
 syntax on
 
 " Set color scheme
-colorscheme molokai  
+colorscheme 256-jungle  
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 
@@ -77,6 +77,9 @@ set guioptions-=m
 set noswapfile
 
 "Configure unite
+let g:unite_source_grep_command = 'grep'
+let g:unite_source_grep_default_opts = ''
+let g:unite_source_grep_recursive_opt = ''
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'

@@ -149,16 +149,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j           resize shrink width 10 px or 10 ppt
-        bindsym k           resize grow height 10 px or 10 ppt
-        bindsym l           resize shrink height 10 px or 10 ppt
-        bindsym semicolon   resize grow width 10 px or 10 ppt
+        bindsym j           resize shrink width 10 px or 5 ppt
+        bindsym k           resize grow height 10 px or 5 ppt
+        bindsym l           resize shrink height 10 px or 5 ppt
+        bindsym semicolon   resize grow width 10 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 10 px or 5 ppt
+        bindsym Down        resize grow height 10 px or 5 ppt
+        bindsym Up          resize shrink height 10 px or 5 ppt
+        bindsym Right       resize grow width 10 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -176,8 +176,8 @@ bar {
          separator #323232
 
                             #border backgr. text
-         focused_workspace  #676d3d #676d3d #ebdbb2
-         active_workspace   #323232 #5f676a #ebdbb2
+         focused_workspace  #999999 #666666 #ebdbb2
+         active_workspace   #323232 #444444 #ebdbb2
          inactive_workspace #323232 #323232 #888888
          urgent_workspace   #333333 #900000 #ffffff
   }
@@ -204,7 +204,7 @@ new_window none
 hide_edge_borders both
 
 
-gaps inner 0
+gaps inner 20
 gaps outer 0
 
 
