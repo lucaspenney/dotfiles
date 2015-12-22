@@ -200,12 +200,20 @@ bar {
 #intended for i3 compiled from https://github.com/Airblader/i3
 #i3-gaps
 
+#Laptop brightness up/down
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+
+#Media keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5-
+
 new_window none
 hide_edge_borders both
 
 
 gaps inner 20
-gaps outer 0
+gaps outer -10
 
 
 bindsym Mod1+Shift+minus gaps inner all plus 10
