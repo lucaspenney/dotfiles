@@ -7,7 +7,7 @@
   close_term = <Primary><Shift>w
   go_right = <Shift>Right
   go_left = <Shift>Left
-  copy = <Control>c
+  copy = <Control><Shift>c
   paste = <Control>v
 [profiles]
   [[default]]
