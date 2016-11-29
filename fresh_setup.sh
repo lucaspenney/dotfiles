@@ -1,9 +1,22 @@
 #Set up system (after a fresh install of ubuntu-suerver
 
-#first, install x server
-sudo apt-get install xinit
-sudo apt-get install i3
-sudo apt-get install conky
+echo "System Setup Script"
+echo "Version 1.0-ish"
+sleep 2
+echo "This will attempt to install a large number of (useful) programs."
+echo "Any current configuration on this user/machine will likely get clobbered."
+sleep 4
+echo "You've been warned."
+sleep 3
+
+
+if [[ $(command -v xinit) && $(command -v i3) ]]; then 
+	echo "X server and i3 already installed, skipping"
+else
+	#install x server and repository i3
+	sudo apt-get install xinit
+	sudo apt-get install i3
+fi
 
 #Ubuntu stuff reuqired
 sudo apt-get install software-properties-common 
@@ -11,7 +24,7 @@ sudo apt-get install software-properties-common
 #Install google chrome
 sudo apt-get install libxss1 libappindicator1 libindicator7 libconfig9 libpango1.0-0 fonts-liberation
 sudo apt-get -f install
-if command -v google-chrome ; then
+if [[ $(command -v google-chrome) ]]; then
   echo "Google chrome already installed, skipping"
 else  
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -19,33 +32,88 @@ else
 fi
 
 #Install desktop programs
-sudo apt-get install pcmanfm
+sudo apt-get install pcmanfm feh conky
 
-#Install sublime text
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
-sudo apt-get update
-sudo apt-get install sublime-text-installer
+if [[ $(command -v subl) ]]; then
+	echo "Sublime text already installed, skipping"
+else
+	#Install sublime text
+	sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	sudo apt-get update
+	sudo apt-get install sublime-text-installer
+fi
 
-#Install development tools
-sudo apt-get install vim php7.0 apache2 git make g++ gcc build-essential mysql-server phpmyadmin redis-server
+#install development tools
+sudo apt-get install terminator vim
+#TODO: Configure vim plugins automatically
+
+#Install ZSH
+if [[ $(command -v zsh) ]]; then
+	echo "zsh already installed, skipping"
+else 
+	sudo apt-get install zsh
+	sudo apt-get install git-core
+	#Change shell to zsh 
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+	chsh -s `which zsh`
+	echo "zsh installed, restart required to take effect"
+fi
+#TODO: Configure zsh?
+
+
+#Install development programs
+if [[ $(command -v php) && $(command -v apache2) ]]; then 
+	echo "php and apache2 already installed, skipping"
+else
+	sudo apt-get install php7.0 apache2
+fi
+
+if [[ $(command -v mysql) && $(command -v phpmyadmin) ]]; then 
+	echo "mysql-server already installed, skipping"
+else
+	sudo apt-get install mysql-server
+fi
+
+if [[ $(command -v zsh) ]]; then
+	echo "redis-server already installed, skipping"
+else
+	sudo apt-get install redis-server
+fi
+
+
+echo "Installing essential build tools"
+sudo apt-get install git make g++ gcc build-essential
 
 #Install nodejs tools
 sudo apt-get install npm
 sudo npm install -g n
 sudo n latest
+sudo npm install -g npm #update npm
 sudo npm install -g grunt-cli gulp
 
-echo "Installing Composer";
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('SHA384', 'composer-setup.php') === 'aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
+if [[ $(command -v composer) ]]; then
+  echo "Composer already installed, skipping"
+else
+  echo "Installing Composer";
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  php -r "if (hash_file('SHA384', 'composer-setup.php') === 'aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+  php composer-setup.php
+  php -r "unlink('composer-setup.php');"
+fi
 
+#Install lx themes (change using lxappearance)
 sudo apt-get install human-theme human-icon-theme lxappearance
 sudo apt-get install compton
-#Set appearance in lxappearance to theme (dark theme)
+sudo apt-get install pavucontrol
+
+#Export dotfiles configuration
+echo "Exporting dotfiles configuration"
+cd ~/dotfiles
+bash export.sh
+#TODO: Fix this export script to make symbolic links instead of copying files
 
 #Install i3 airblader gaps instead of regular i3
+echo "Installing airblader/i3 i3-gaps version of i3"
 sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
 
 git clone https://github.com/Airblader/i3.git i3-gaps
@@ -54,4 +122,13 @@ git checkout tags/4.12
 make && sudo make install
 
 #Todo: Restart machine after everything is done, and setup startup bash file
+printf "All setup steps complete, restarting machine in 5"
+for i in {4..1}
+do
+   printf "...%d" $i
+   sleep 1
+done
+printf "\nRestarting..."
+
+sudo shutdown -r 0
 
