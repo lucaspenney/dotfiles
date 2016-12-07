@@ -45,7 +45,12 @@ fi
 
 #install development tools
 sudo apt-get install terminator vim
-#TODO: Configure vim plugins automatically
+
+#Configure vim and install plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+
 
 #Install ZSH
 if [[ $(command -v zsh) ]]; then
@@ -90,13 +95,20 @@ git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.unstage 'reset HEAD --'
 
+#NodeJS
 
-#Install nodejs tools
-sudo apt-get install npm
-sudo npm install -g n
-sudo n latest
-sudo npm install -g npm #update npm
-sudo npm install -g grunt-cli gulp
+if [[ $(node -v) == *7.* ]]; then
+  echo "Current version of node installed, skipping"
+else
+  #Install nodejs tools
+  sudo apt-get install npm
+  sudo npm install -g n
+  sudo n latest
+  sudo npm install -g npm #update npm
+  sudo npm install -g grunt-cli gulp
+fi
+
+#Composer
 
 if [[ $(command -v composer) ]]; then
   echo "Composer already installed, skipping"
@@ -123,23 +135,27 @@ cd ~/dotfiles
 bash export.sh
 #TODO: Fix this export script to make symbolic links instead of copying files
 
-#Install i3 airblader gaps instead of regular i3
-echo "Installing airblader/i3 i3-gaps version of i3"
-sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
+if [[ $(/usr/bin/i3 -v) == *4.12* ]]; then
+  echo "i3 already using airblader gaps version, skipping"
+else
+  #Install i3 airblader gaps instead of regular i3
+  echo "Installing airblader/i3 i3-gaps version of i3"
+  sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
 
-git clone https://github.com/Airblader/i3.git i3-gaps
-cd i3-gaps
-git checkout tags/4.12
-make && sudo make install
+  git clone https://github.com/Airblader/i3.git i3-gaps
+  cd i3-gaps
+  git checkout tags/4.12
+  make && sudo make install
+  sudo rm -r i3-gaps
+fi
 
-#Todo: Restart machine after everything is done, and setup startup bash file
-printf "All setup steps complete, restarting machine in 5"
-for i in {4..1}
-do
-   printf "...%d" $i
-   sleep 1
-done
-printf "\nRestarting..."
+#Todo: Setup startup bash file
 
-sudo shutdown -r 0
+read -p "Some changes may require a restart. Restart this machine now? y/n " -n 1 -r
+echo 
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+        sudo shutdown -r 0
+fi
+
 
