@@ -12,16 +12,16 @@
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    palette = "#101010:#75484c:#353923:#393623:#332539:#362339:#233936:#f8f8f8:#3a3a3a:#d8c0c3:#c3d8c0:#d8d5c0:#c0c3d8:#d5c0d8:#c0d8d5:#ffffff"
+    palette = "#101010:#b19ea0:#646b45:#54513c:#332539:#362339:#576a67:#f8f8f8:#65737e:#d8c0c3:#c3d8c0:#d8d5c0:#c0c3d8:#d5c0d8:#c0d8d5:#ffffff"
     background_image = None
     background_darkness = 0.73
     background_type = transparent
     use_system_font = False
     cursor_color = "#ffffff"
-    foreground_color = "#aba3a0"
+    foreground_color = "#bfc5cb"
     show_titlebar = False
     font = Monospace 9
-    background_color = "#070707"
+    background_color = "#2c333b"
     scrollback_infinite = True
 [layouts]
   [[default]]

@@ -1,6 +1,6 @@
 {
 	"caret_extra_width": 8,
-	"color_scheme": "Packages/Theme - Cyanide/Cyanide - Golden - Black.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Material Spaceblack Oceanic (SL).tmTheme",
 	"font_face": "Inconsolata",
 	"font_options":
 	[
@@ -10,13 +10,14 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Clouds Color Schemes",
 		"Vintage"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"scroll_past_end": false,
-	"theme": "Cyanide.sublime-theme",
-	"translate_tabs_to_spaces": true,
+	"theme": "Afterglow-magenta.sublime-theme",
+	"translate_tabs_to_spaces": false,
 	"use_tab_stops": true,
-	"translate_tabs_to_spaces": false
+	"word_wrap": false
 }
