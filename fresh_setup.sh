@@ -130,10 +130,10 @@ sudo apt-get install compton
 sudo apt-get install pavucontrol
 
 #Export dotfiles configuration
+#This expects various config files to exist on the system (though they will be overwritten) so this should be done last
 echo "Exporting dotfiles configuration"
 cd ~/dotfiles
 bash export.sh
-#TODO: Fix this export script to make symbolic links instead of copying files
 
 if [[ $(/usr/bin/i3 -v) == *4.12* ]]; then
   echo "i3 already using airblader gaps version, skipping"
@@ -155,7 +155,7 @@ read -p "Some changes may require a restart. Restart this machine now? y/n " -n 
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-        sudo shutdown -r 0
+  sudo shutdown -r 0
 fi
 
 

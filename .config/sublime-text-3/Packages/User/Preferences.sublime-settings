@@ -16,8 +16,10 @@
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"scroll_past_end": false,
-	"theme": "Afterglow-magenta.sublime-theme",
+	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"use_tab_stops": true,
-	"word_wrap": false
+	"word_wrap": false,
+	"hot_exit": false,
+	"remember_open_files": false
 }
