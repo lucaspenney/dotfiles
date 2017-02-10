@@ -13,7 +13,6 @@ if [[ $REPLY =~ ^[Yy]$i ]]; then
     files=(`cd ~/dotfiles/$i && find . -printf '/%P\n'`)
     for k in "${files[@]}"
     do
-      echo $i$k;
       if [[ -d $i$k ]]; then
         echo "Directory, skipping symlink"
       else
