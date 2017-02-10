@@ -31,7 +31,7 @@ TEXT
 #Bar showing available entropy. Install haveged if you want this to rocket up. Without, /proc/sys/kernel/random/entropy_avail reported on my sysem ~175. With, it reported ~3585
   #{"full_text": " ~ [$entropy_bar] ", "color":"\#AFB500"},
 #Shows battery bar
-{"full_text": "♥ BAT [${battery_bar 1,20 BAT1}] ${battery_percent BAT1}% ", "color":"\#666666"},
+{"full_text": "♥ BAT [${battery_bar 1,20 BAT0}] ${battery_percent BAT0}% ", "color":"\#666666"},
 #Shows temperature of GPU. Only works with NVIDIA cards with the proprietary drivers installed. Could be replaced with a lm-sensors-provided temperature
  # {"full_text": " ≈ [${exec nvidia-settings -q gpucoretemp -t}°C] ","color":"\#33CC99"},
 #Shows upime

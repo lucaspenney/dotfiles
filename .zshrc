@@ -3,6 +3,8 @@
 export ZSH=/home/$(whoami)/.oh-my-zsh
 bash ~/.bashrc
 
+xmodmap ~/.Xmodmap &> /dev/null
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
