@@ -120,3 +120,14 @@ export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
 stty -ixon
 
 feh --bg-scale ~/.i3/wallpaper2.png
+
+if [[ -z "$DISPLAY" ]]; then
+  startx
+fi
+
+if pgrep "i3" > /dev/null 
+then
+  :
+else
+  i3
+fi
