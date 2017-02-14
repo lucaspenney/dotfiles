@@ -83,9 +83,11 @@ else
 	sudo apt-get --yes --force-yes install redis-server
 fi
 
+#Install java
+sudo apt-get --yes --force-yes install openjdk-8-jre openjdk-8-jdk
 
 echo "Installing essential build tools"
-sudo apt-get --yes --force-yes install git make g++ gcc build-essential
+sudo apt-get --yes --force-yes install git make g++ gcc build-essential unzip lib32stdc++6 lib32z1
 
 #Configure git
 git config --global alias.st status
