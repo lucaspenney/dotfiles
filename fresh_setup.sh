@@ -142,7 +142,7 @@ if [[ $(/usr/bin/i3 -v) == *4.12* ]]; then
 else
   #Install i3 airblader gaps instead of regular i3
   echo "Installing airblader/i3 i3-gaps version of i3"
-  sudo apt-get --yes --force-yes install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf make
+  sudo apt-get --yes --force-yes install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf make dmenu
 
   git clone https://github.com/Airblader/i3.git ~/i3-gaps
   cd ~/i3-gaps
