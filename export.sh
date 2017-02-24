@@ -17,7 +17,7 @@ if [[ $REPLY =~ ^[Yy]$i ]]; then
         echo "Directory, skipping symlink"
       else
         echo "Symlinking $i$k"
-        #mkdir -p ~/$i
+        mkdir -p ~/$i
         ln -fs ~/dotfiles/$i$k ~/$i$k
       fi
     done

@@ -18,7 +18,7 @@ else
 fi
 
 #Ubuntu stuff reuqired
-sudo apt-get --yes --force-yes install software-properties-common 
+sudo apt-get --yes --force-yes install software-properties-common make
 
 #Install google chrome
 sudo apt-get --yes --force-yes install libxss1 libappindicator1 libindicator7 libconfig9 libpango1.0-0 fonts-liberation
@@ -30,6 +30,8 @@ else
   sudo dpkg -i google-chrome*.deb
 fi
 
+sudo apt-get -f install
+
 #Install desktop programs
 sudo apt-get --yes --force-yes install pcmanfm feh conky arandr
 
@@ -37,7 +39,7 @@ if [[ $(command -v subl) ]]; then
 	echo "Sublime text already installed, skipping"
 else
 	#Install sublime text
-	sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 	sudo apt-get update
 	sudo apt-get --yes --force-yes install sublime-text-installer
 fi
@@ -129,21 +131,18 @@ else
   sudo composer self-update
 fi
 
+sudo apt-get -f install
+
 #Install lx themes (change using lxappearance)
 sudo apt-get --yes --force-yes install human-theme human-icon-theme lxappearance compton pavucontrol
 
-#Export dotfiles configuration
-#This expects various config files to exist on the system (though they will be overwritten) so this should be done last
-echo "Exporting dotfiles configuration"
-cd ~/dotfiles
-bash export.sh
 
 if [[ $(/usr/bin/i3 -v) == *4.12* ]]; then
   echo "i3 already using airblader gaps version, skipping"
 else
   #Install i3 airblader gaps instead of regular i3
   echo "Installing airblader/i3 i3-gaps version of i3"
-  sudo apt-get --yes --force-yes install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf
+  sudo apt-get --yes --force-yes install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf make
 
   git clone https://github.com/Airblader/i3.git ~/i3-gaps
   cd ~/i3-gaps
@@ -151,6 +150,11 @@ else
   make && sudo make install
   sudo rm -r ~/i3-gaps
 fi
+
+
+echo "Exporting dotfiles configuration"
+cd ~/dotfiles
+bash export.sh
 
 #Todo: Setup startup bash file
 
