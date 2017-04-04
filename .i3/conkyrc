@@ -10,32 +10,14 @@ override_utf8_locale yes
 
 TEXT
 ,[
-#Shows hostname
-  {"full_text": "[${exec hostname}] ", "color":"\#999999"},
-#Shows current user
-  {"full_text": " ☻ [${exec whoami}] ", "color":"\#CCCCCC"},
-
-  #Finds out if cmus is running. If it is, it provides 1) the current artist and 2) the current track. If cmus isn't running it outputs "Not Running"
- # {"full_text": " [${exec sh .scripts/cmusconk.sh}] ", "color":"\#666666"},
-#Finds current volume. May need modified depending on your setup
- # {"full_text": " ♪ ${exec amixer get Master | grep -o "\[.*%\]"} ", "color":"\#666666"},
-
-#Shows uploadspeed
-  #{"full_text": " ▲ [${upspeedgraph}] ", "color":"\#666666"},
-#Shows downloadspeed
-  #{"full_text": " ▼ [${downspeedgraph 0,1,20}] ", "color":"\#666666"},
-#Shows current memory usage with a bar
-  {"full_text": " || MEM [${membar 1,20}] ${memperc}%", "color":"\#666666"},
-#Shows current CPU usage with a bar
-  {"full_text": " ■ CPU [${cpubar 1,20}] ${cpu}%", "color":"\#666666"},
-#Bar showing available entropy. Install haveged if you want this to rocket up. Without, /proc/sys/kernel/random/entropy_avail reported on my sysem ~175. With, it reported ~3585
-  #{"full_text": " ~ [$entropy_bar] ", "color":"\#AFB500"},
-#Shows battery bar
-{"full_text": "♥ BAT [${battery_bar 1,20 BAT0}] ${battery_percent BAT0}% ", "color":"\#666666"},
-#Shows temperature of GPU. Only works with NVIDIA cards with the proprietary drivers installed. Could be replaced with a lm-sensors-provided temperature
- # {"full_text": " ≈ [${exec nvidia-settings -q gpucoretemp -t}°C] ","color":"\#33CC99"},
-#Shows upime
-  {"full_text": " ↑ [${uptime}] ","color": "\#999999"},
-#Shows time
+  {
+    "full_text": "${exec whoami} @ ${exec hostname} ", 
+    "color":"\#FFFFFF"
+  },
+  {"full_text": " MEM [${memgraph 1,10}] ${memperc}% ", "color":"\#666666"},
+  {"full_text": " CPU [${cpugraph 1,10}] ${cpu}% ", "color":"\#666666"},
+  {"full_text": " Disk [${diskiograph 1,10}] ${cpu}% ", "color":"\#666666"},
+  {"full_text": " BAT [${battery_bar 1,10 BAT0}] ${battery_percent BAT0}% ", "color":"\#666666"},
+  {"full_text": " UP [${uptime}] ","color": "\#666666"},
   {"full_text": " [${time %a %d %b} ${time %H:%M:%S}] ","color": "\#FFFFFF"}
 ]
