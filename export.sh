@@ -10,15 +10,16 @@ if [[ $REPLY =~ ^[Yy]$i ]]; then
   directories=( .config .irssi .i3 .oh-my-zsh )
   for i in "${directories[@]}"
   do
+    IFS=$(echo -en "\n\b")
     files=(`cd ~/dotfiles/$i && find . -printf '/%P\n'`)
     for k in "${files[@]}"
     do
-      echo $i$k;
       if [[ -d $i$k ]]; then
         echo "Directory, skipping symlink"
       else
-        echo "Symlinking $i$k"
-        ln -fs ~/dotfiles/$i$k ~/$i$k
+        echo "Symlinking ~/dotfiles/$i$k ~/$i$k"
+        #mkdir -p ~/$i
+        sudo ln -fs ~/dotfiles/$i$k ~/$i$k
       fi
     done
   done
