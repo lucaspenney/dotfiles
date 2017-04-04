@@ -182,9 +182,9 @@ bar {
 
 	#border backgr. text
 	focused_workspace  #00000000 #00000000 #33FFFFFF
-	active_workspace   #333333 #333333 #33FFFFFF
+	active_workspace   #00000000 #00000000 #33FFFFFF
 	inactive_workspace #00000000 #00000000 #666666
-	urgent_workspace   #333333 #000000 #33FFFFFF
+	urgent_workspace   #333333 #00000000 #33FFFFFF
 	}
 	status_command ~/.i3/conky
 	position top
