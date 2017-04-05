@@ -1,20 +1,27 @@
 {
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"Auto Semi-Colon",
 		"Backbone.js",
-		"Color Scheme - Baara Dark",
-		"GitGutter-Edge",
-		"JsFormat",
+		"ColorSchemeEditor",
+		"GitGutter",
+		"JSON Reindent",
+		"JSX",
 		"LESS",
-		"Snake",
+		"Package Control",
+		"PHP-Twig",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"SublimeLinter-php",
+		"Sublimerge 3",
 		"Syntax Highlighting for Sass",
 		"Theme - Afterglow",
 		"Theme - Cyanide",
 		"Theme - Soda",
-		"Theme - Vim Blackboard"
+		"Themes Menu Switcher"
 	]
 }
