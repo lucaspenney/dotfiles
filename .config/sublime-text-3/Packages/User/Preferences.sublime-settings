@@ -1,6 +1,6 @@
 {
 	"caret_extra_width": 8,
-	"color_scheme": "Packages/User/SublimeLinter/Material Spaceblack Oceanic (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Afterglow-twilight (SL).tmTheme",
 	"font_face": "Inconsolata",
 	"font_options":
 	[
@@ -8,6 +8,7 @@
 	],
 	"font_size": 9,
 	"highlight_line": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Clouds Color Schemes",
@@ -15,11 +16,10 @@
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
+	"remember_open_files": false,
 	"scroll_past_end": false,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Afterglow.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"use_tab_stops": true,
-	"word_wrap": false,
-	"hot_exit": false,
-	"remember_open_files": false
+	"word_wrap": false
 }
