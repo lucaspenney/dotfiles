@@ -1,0 +1,12 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+  editor:
+    fontSize: 16
+    invisibles: {}
+    showInvisibles: true
+  "exception-reporting":
+    userId: "d992621f-7dd9-4cf5-a725-00aaa4a6d788"
+  welcome:
+    showOnStartup: false
