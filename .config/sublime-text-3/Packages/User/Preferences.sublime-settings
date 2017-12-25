@@ -6,12 +6,13 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 9,
+	"font_size": 10,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Clouds Color Schemes",
+		"SublimeLinter",
 		"Vintage"
 	],
 	"line_padding_bottom": 1,

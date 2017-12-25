@@ -121,9 +121,9 @@ stty -ixon
 
 feh --bg-scale ~/.i3/wallpaper2.png
 
-if [[ -z "$DISPLAY" ]]; then
-  startx
-fi
+#if [[ -z "$DISPLAY" ]]; then
+  #startx
+#fi
 
 if pgrep "i3" > /dev/null 
 then
@@ -135,3 +135,5 @@ fi
 export ANDROID_HOME=~/Android/Sdk
 
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools
+
+python -c 'from ctypes import *; X11 = cdll.LoadLibrary("libX11.so.6"); display = X11.XOpenDisplay(None); X11.XkbLockModifiers(display, c_uint(0x0100), c_uint(2), c_uint(0)); X11.XCloseDisplay(display)'
