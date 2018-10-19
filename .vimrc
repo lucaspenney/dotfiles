@@ -301,6 +301,12 @@ nnoremap <C-n> :tabnew<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-S-tab> :tabprevious<CR>
 
+noremap <C-n> :tabnew<CR>
+noremap <S-Tab> :tabnext<CR>
+
+nnoremap [ <Esc>v<<<Esc>
+nnoremap ] <Esc>v>><Esc>
+
 "nnoremap <silent> <esc> :nohl <return><esc>
 
 if has('autocmd')
