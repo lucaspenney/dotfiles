@@ -33,7 +33,7 @@ fi
 sudo apt-get -f install
 
 #Install desktop programs
-sudo apt-get --yes --force-yes install pcmanfm feh conky arandr
+sudo apt-get --yes --force-yes install feh conky arandr
 
 if [[ $(command -v subl) ]]; then
 	echo "Sublime text already installed, skipping"
@@ -66,42 +66,8 @@ fi
 #TODO: Configure zsh?
 
 
-#Install development programs
-if [[ $(command -v php) && $(command -v apache2) ]]; then 
-	echo "php and apache2 already installed, skipping"
-else
-	sudo apt-get --yes --force-yes install php7.0 apache2
-fi
-
-if [[ $(command -v mysql) && $(command -v phpmyadmin) ]]; then 
-	echo "mysql-server already installed, skipping"
-else
-	sudo apt-get --yes --force-yes install mysql-server
-fi
-
-if [[ $(command -v zsh) ]]; then
-	echo "redis-server already installed, skipping"
-else
-	sudo apt-get --yes --force-yes install redis-server
-fi
-
-#Install java
-sudo apt-get --yes --force-yes install openjdk-8-jre openjdk-8-jdk
-
 echo "Installing essential build tools"
 sudo apt-get --yes --force-yes install git make g++ gcc build-essential unzip lib32stdc++6 lib32z1
-
-#Configure git
-git config --global alias.st status
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.unstage 'reset HEAD --'
-git config --global push.default simple
-git config --global credential.helper 'cache --timeout 60000'
-
-echo "If you aren't Lucas Penney, this script just messed up your git config name and email.";
-git config --global user.email "lucaspenney@gmail.com"
-git config --global user.name "Lucas Penney"
 
 #NodeJS
 

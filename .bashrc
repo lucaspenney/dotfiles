@@ -3,10 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-if tty -s; then echo
-   else
-    return
-fi
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,11 +84,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias sub='sublime-text'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -114,26 +116,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
-
-#Prevent control-s locking
-stty -ixon
-
-feh --bg-scale ~/.i3/wallpaper2.png
-
-#if [[ -z "$DISPLAY" ]]; then
-  #startx
-#fi
-
-if pgrep "i3" > /dev/null 
-then
-  :
-else
-  i3
-fi
-
-export ANDROID_HOME=~/Android/Sdk
-
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools
-
-python -c 'from ctypes import *; X11 = cdll.LoadLibrary("libX11.so.6"); display = X11.XOpenDisplay(None); X11.XkbLockModifiers(display, c_uint(0x0100), c_uint(2), c_uint(0)); X11.XCloseDisplay(display)'
+xmodmap -e "keycode 66 = Shift_L NoSymbol Shift_L"

@@ -27,14 +27,14 @@ set $green              #B5BD56
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec i3-sensible-terminal
+bindsym Mod1+Return exec --no-startup-id bash -c "terminator -p 'Chalk'"
 
 # kill focused window
 bindsym Mod1+Shift+q kill
 
-bindsym Mod1+d exec --no-startup-id bash -c "export XDG_CURRENT_DESKTOP=kde && rofi -bg '#000' -fg '#fff' -show run "
+bindsym Mod1+d exec --no-startup-id bash -c "bash -c 'rofi -theme /usr/share/rofi/themes/lb.rasi -show run'"
 
-exec_always --no-startup-id bash -c "feh --bg-fill ~/.config/i3/wallpaper.jpg"
+exec_always --no-startup-id bash -c "feh --bg-fill ~/.config/i3/wallpaper.png"
 
 # change focus
 bindsym Mod1+h focus left
@@ -71,8 +71,8 @@ bindsym Mod1+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym Mod1+s layout stacking
-bindsym Mod1+w layout tabbed
-bindsym Mod1+e layout toggle split
+#bindsym Mod1+w layout tabbed
+#bindsym Mod1+e layout toggle split
 
 # toggle tiling / floating
 bindsym Mod1+Shift+space floating toggle
@@ -95,16 +95,16 @@ bindsym Mod1+Shift+Tab move scratchpad
 bindsym Mod1+Tab scratchpad show
 
 
-set $ws1 [ 1 ]
-set $ws2 [ 2 ]
-set $ws3 [ 3 ]
-set $ws4 [ 4 ]
-set $ws5 [ 5 ]
-set $ws6 [ 6 ]
-set $ws7 [ 7 ]
-set $ws8 [ 8 ]
-set $ws9 [ 9 ]
-set $ws0 [ 0 ]
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws0 0
 
 # switch to workspace
 bindsym Mod1+1 workspace $ws1
@@ -169,13 +169,12 @@ bindsym Escape mode "default"
 
 bindsym Mod1+r mode "resize"
 
-exec_always --no-startup-id bash -c ' nvidia-settings --assign CurrentMetaMode="DP-4: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DP-2: nvidia-auto-select +2560+0 {ForceCompositionPipeline=On}"'
+#exec_always --no-startup-id bash -c ' nvidia-settings --assign CurrentMetaMode="DP-4: nvidia-auto-select +0+0 {ForceCompositionPipeline=On}, DP-2: nvidia-auto-select +2560+0 {ForceCompositionPipeline=On}"'
 
 
 
 exec_always --no-startup-id bash -c 'killall polybar'
-exec_always --no-startup-id bash -c 'sleep 1 && polybar top1 &'
-exec_always --no-startup-id bash -c 'sleep 1 && polybar top0 &'
+exec_always --no-startup-id bash -c 'sleep 1 && polybar top &'
 
 exec_always --no-startup-id bash -c 'killall compton'
 exec_always --no-startup-id bash -c 'sleep 1 && compton --config ~/.config/i3/compton.conf -b'
@@ -221,12 +220,22 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5-
 
-new_window none
-hide_edge_borders both
+#borders
+hide_edge_borders none
+for_window [class=.*] border pixel 0
 
+set $bordercolor #111111
+set $none #00FFFF00
 
-gaps inner 40
+client.focused          $none $none $none $none $none
+client.focused_inactive $none $none $none $none $none
+client.unfocused        $none $none $none $none $none
+client.urgent           $bordercolor $none $none $none $none
+client.background	$none $none $none $none $none
+
+gaps inner 30
 gaps outer -10
+border_radius 15
 
 
 bindsym Mod1+Shift+minus gaps inner all plus 10
@@ -242,10 +251,11 @@ bindsym Mod1+s exec xscreensaver-command -activate
 
 #start background processes
 exec --no-startup-id /usr/bin/nm-applet
-exec_always --no-startup-id i3-msg 'exec_always /usr/bin/feh --bg-scale ~/.i3/wallpaper.png &
+exec_always --no-startup-id /usr/bin/feh --bg-scale ~/.config/i3/wallpaper.png
 
 #start programs
 exec_always --no-startup-id i3-msg 'workspace $ws1;exec_always /usr/bin/chromium-browser'
 exec_always --no-startup-id i3-msg 'workspace $ws2;exec_always /usr/bin/terminator'
 
 floating_minimum_size 200 x 200
+

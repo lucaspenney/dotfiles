@@ -1,12 +1,60 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#ff0000"
+      accentColor: "#1affff"
+      genAccent: true
+    ui:
+      panelContrast: true
   core:
-    autoHideMenuBar: true
+    colorProfile: "srgb"
     telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "firewatch-dark-syntax"
+    ]
   editor:
-    fontSize: 16
-    invisibles: {}
+    atomicSoftTabs: false
+    fontSize: 23
+    lineHeight: 1.6
+    preferredLineLength: 160
     showInvisibles: true
+    softTabs: false
+    tabLength: 4
+    tabType: "hard"
   "exception-reporting":
-    userId: "d992621f-7dd9-4cf5-a725-00aaa4a6d788"
+    userId: "44849c01-a1d4-447d-802b-c1f1675bac11"
+  fonts:
+    fontSize: 20
+  tabs:
+    tintedTabBar: true
+  ui:
+    panelContrast: true
   welcome:
     showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
+core:
+  disabledPackages: [
+    "github"
+  ]
+  telemetryConsent: "no"
+  themes: [
+    "genesis-ui"
+    "genesis-syntax"
+  ]
+editor:
+  fontSize: 18
+  lineHeight: 1.8
+  preferredLineLength: 120
+  showIndentGuide: true
+  showInvisibles: true
+  softTabs: false
+  tabLength: 4
+  tabType: "hard"
+"exception-reporting":
+  userId: "6b218cf6-5b39-40cb-b71b-678e7e3b2b00"
+welcome:
+  showOnStartup: false
