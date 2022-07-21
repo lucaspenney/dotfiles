@@ -173,7 +173,7 @@ bindsym Escape mode "default"
 
 bindsym Mod1+r mode "resize"
 
-exec_always --no-startup-id bash -c 'killall polybar || true && sleep 1 && ~/Git/dotfiles/scripts/current_monitor.sh && polybar --config=/home/lucas/.config/i3/polybar top &'
+exec_always --no-startup-id bash -c 'killall polybar || true && sleep 1 && source ~/Git/dotfiles/scripts/current_monitor.sh && polybar --config=/home/lucas/.config/i3/polybar top &'
 
 exec_always --no-startup-id bash -c 'killall picom || true && sleep 1 && picom --experimental-backends --backend glx --config ~/.config/i3/picom.conf -b'
 

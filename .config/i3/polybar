@@ -1,13 +1,13 @@
 [bar/setting]
 transparent = #33000000
 height = 40
+foreground = #CCC
 
 [bar/top]
 monitor = ${env:MONITOR}
 height = ${bar/setting.height}
-
 background = ${bar/setting.transparent}
-foreground = #999
+foreground = ${bar/setting.foreground}
 
 spacing = 0
 padding-right = 0
@@ -16,9 +16,9 @@ module-margin = 2
 
 font-0 = Monospace:size=14;5
 font-1 = Material Icons:size=15;6
-modules-left = i3
-modules-center = battery cputemp cpu memory
-modules-right = date
+modules-left = i3 spacer dropbox
+modules-center = date
+modules-right = battery cputemp cpu memory spacer
 tray-position = right
 
 [module/cputemp]
@@ -27,6 +27,20 @@ exec = sensors | grep "temp1" | cut -c 15-24 | paste -sd' '
 interval = 2
 format = <label>
 label = CPU: %output%
+
+[module/dropbox]
+type = custom/script
+exec = ~/Git/dotfiles/scripts/dropbox_status.sh
+interval = 15
+format = <label>
+label = %output%
+
+[module/spacer]
+type = custom/script
+exec = ""
+interval = 60
+format = <label>
+label = " "
 
 [module/backlight]
 type = internal/xbacklight
@@ -145,7 +159,7 @@ label-separator-foreground = #ffb52a
 type = internal/cpu
 interval = 1
 format = <label> <ramp-coreload>
-label =  %percentage%% | %percentage-sum%%
+label = CPU %percentage%%
 ramp-coreload-spacing = 0
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -174,13 +188,13 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
 format = <label>
-label =  RAM %percentage_free%%
+label = RAM %gb_used% / %gb_total%
 
 bar-used-width = 30
 bar-used-foreground-0 = #aaff77
