@@ -235,7 +235,3 @@ bindsym Mod1+s exec xscreensaver-command -activate
 #start background processes
 exec --no-startup-id /usr/bin/nm-applet
 exec_always --no-startup-id i3-msg 'exec_always /usr/bin/feh --bg-scale ~/.i3/wallpaper.png &
-
-#start programs
-exec_always --no-startup-id i3-msg 'workspace $ws1;exec_always /usr/bin/chromium-browser'
-exec_always --no-startup-id i3-msg 'workspace $ws2;exec_always /usr/bin/terminator'
