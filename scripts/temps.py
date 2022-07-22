@@ -20,5 +20,9 @@ if hostname == "laptop":
 			temp = temp[temp.index('+'):]
 			temp = temp[1:]
 			output = temp
+		if lines[0] == "asus-isa-0000":
+			fan = lines[2]
+			fan = fan[10:].strip()
+			output += "(" + fan + ")  "
 
 print(output)

@@ -1,7 +1,7 @@
 [bar/setting]
 transparent = #33000000
-height = 40
-foreground = #CCC
+height = 45
+foreground = #999
 
 [bar/top]
 monitor = ${env:MONITOR}
@@ -24,9 +24,9 @@ tray-position = right
 [module/cputemp]
 type = custom/script
 exec = ~/Git/dotfiles/scripts/temps.py
-interval = 2
+interval = 1
 format = <label>
-label = %output%
+label = CPU: %output%
 
 [module/dropbox]
 type = custom/script
@@ -189,12 +189,12 @@ ramp-coreload-7-foreground = #ff5555
 [module/date]
 type = internal/date
 date = %Y-%m-%d %H:%M%
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+label = NOW: %date%
 
 [module/memory]
 type = internal/memory
 format = <label>
-label = RAM %gb_used% / %gb_total%
+label = RAM: %gb_used% / %gb_total%
 
 bar-used-width = 30
 bar-used-foreground-0 = #aaff77
