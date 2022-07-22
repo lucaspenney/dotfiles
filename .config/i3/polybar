@@ -17,7 +17,7 @@ module-margin = 0
 font-0 = Monospace:size=14;5
 font-1 = Material Icons:size=15;6
 modules-left = i3
-modules-center = battery spacer cputemp cpu spacer memory
+modules-center = battery spacer spacer cputemp cpu spacer spacer memory
 modules-right = date
 tray-position = right
 
@@ -37,10 +37,10 @@ label = %output%
 
 [module/spacer]
 type = custom/script
-exec = ''
-interval = 60
+exec = ';'
+interval = 9999999
 format = <label>
-label = "    "
+label = "     "
 
 [module/backlight]
 type = internal/xbacklight
@@ -159,7 +159,7 @@ label-separator-foreground = #ffb52a
 type = internal/cpu
 interval = 1
 format = <label> <ramp-coreload>
-label = CPU %percentage%%
+label = %percentage%%
 ramp-coreload-spacing = 0
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
