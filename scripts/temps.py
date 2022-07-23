@@ -25,4 +25,18 @@ if hostname == "laptop":
 			fan = fan[10:].strip()
 			output += "(" + fan + ")  "
 
+
+if hostname == "desktop":
+	cmd = subprocess.run(['sensors'], capture_output=True, text=True)
+	sensors = cmd.stdout.strip()
+	groups = sensors.split("\n\n")
+
+	for s in groups:
+		lines = s.split("\n")
+		if lines[0] == "k10temp-pci-00c3":
+			temp = lines[2]
+			temp = temp[temp.index('+'):]
+			temp = temp[1:]
+			output = temp
+
 print(output)
