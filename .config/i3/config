@@ -174,8 +174,9 @@ bindsym Escape mode "default"
 bindsym Mod1+r mode "resize"
 
 exec_always --no-startup-id bash -c 'killall polybar || true && sleep 1 && source ~/Git/dotfiles/scripts/current_monitor.sh && polybar --config=/home/lucas/.config/i3/polybar top &'
-
 exec_always --no-startup-id bash -c 'killall picom || true && sleep 1 && picom --experimental-backends --backend glx --config ~/.config/i3/picom.conf -b'
+#disable caps lock
+exec_always --no-startup-id python -c 'from ctypes import *; X11 = cdll.LoadLibrary("libX11.so.6"); display = X11.XOpenDisplay(None); X11.XkbLockModifiers(display, c_uint(0x0100), c_uint(2), c_uint(0)); X11.XCloseDisplay(display)'
 
 exec_always --no-startup-id gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}, {'Xft/DPI', <196608>}, {'Xcursor/Size', <25000>}, {'Xcursor/size', <25000>}]"
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 33

@@ -101,3 +101,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 function editor() { atom "$@" --in-process-gpu; }
 function screenshot() { flameshot gui -d 1000; }
+
+alias assh='TERM=xterm-256color ssh'
